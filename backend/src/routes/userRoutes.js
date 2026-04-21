@@ -1,11 +1,10 @@
 import express from "express"
-import protectRoute from "../middleware/authMiddleware.js"
+import { protectRoute } from "../middleware/authMiddleware.js"
 const router = express.Router()
 import { getRecommandedUsers, getMyFriends, sendFriendRequest, acceptFriendRequest, getFriendRequests, getOutgoingFriendRequests } from "../controllers/userControllers.js"
 
 // auth middle ware
 router.use(protectRoute)
-
 
 router.get("/", getRecommandedUsers)
 router.get("/friends", getMyFriends)
